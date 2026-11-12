@@ -94,7 +94,26 @@ CREATE TABLE IF NOT EXISTS energy_trades (
     CONSTRAINT fk_trade_buyer  FOREIGN KEY (buyer_meter_id)  REFERENCES smart_meters(meter_id)
 ) ENGINE=InnoDB;
 
--- ---------------------------------------------------------------------
+
+
+-- Alter --
+-- ALTER TABLE demonstrations
+
+ALTER TABLE smart_meters
+ADD COLUMN meter_type ENUM('CONSUMER','SOLAR','BATTERY')
+NOT NULL DEFAULT 'CONSUMER'
+AFTER node_id;
+
+ALTER TABLE users
+ADD CONSTRAINT chk_user_email
+CHECK (email LIKE '_%@_%.__%');
+
+ALTER TABLE smart_meters
+ADD FULLTEXT INDEX ft_meter_address (installation_address);
+
+
+
+--------------------------------------------------------------------
 -- Performance indexes
 -- ---------------------------------------------------------------------
 CREATE INDEX idx_smart_meters_node     ON smart_meters(node_id);

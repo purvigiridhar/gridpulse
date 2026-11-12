@@ -43,5 +43,9 @@ SELECT user_id, 3200.00 FROM users WHERE email = 'vikram@gmail.com';
 --    (inserted directly; wallet balances above already reflect it as "current")
 INSERT INTO energy_trades (seller_meter_id, buyer_meter_id, units_kwh, rate_per_kwh, total_amount, trade_status)
 VALUES ('MTR-IND-001', 'MTR-IND-002', 15.50, 5.00, 77.50, 'COMPLETED');
+-- Update
+UPDATE smart_meters
+SET meter_type = 'SOLAR'
+WHERE meter_id IN ('MTR-IND-001','MTR-KOR-003');
 
 COMMIT;
