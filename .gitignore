@@ -1,0 +1,17 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js build outputs
+/.next/
+/out/
+
+# Environment variables (CRITICAL: keeps passwords off GitHub)
+.env
+.env*.local
+
+# Logs & OS files
+npm-debug.log*
+.DS_Store
+Thumbs.db
